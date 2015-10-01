@@ -1,4 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Disenio basado en el template:
+%
 % Large Colored Title Article
 % LaTeX Template
 % Version 1.1 (25/11/12)
@@ -65,20 +67,20 @@
 
 \pretitle{\vspace{-30pt} \begin{flushleft} \HorRule \fontsize{50}{50} \usefont{OT1}{phv}{b}{n} \color{DarkRed} \selectfont} % Horizontal rule before the title
 
-\title{Article Title} % Your article title
+\title{Una Cucharadita de Bases de Datos Multidimensionales} % Your article title
 
 \posttitle{\par\end{flushleft}\vskip 0.5em} % Whitespace under the title
 
 \preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{DarkRed}} % Author font configuration
 
-\author{John Smith, } % Your name
+\author{Julio S\'{a}nchez,Maikol Barrantes,Frander Granados } % Your name
 
 \postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
-University of California % Your institution
+Tecnol\'{o}gico de Costa Rica % Your institution
 
 \par\end{flushleft}\HorRule} % Horizontal rule after the title
 
-\date{} % Add a date here if you would like one to appear underneath the title block
+\date{29/09/2015} % Add a date here if you would like one to appear underneath the title block
 
 %----------------------------------------------------------------------------------------
 
@@ -93,13 +95,108 @@ University of California % Your institution
 %----------------------------------------------------------------------------------------
 
 % The first character should be within \initial{}
-\initial{H}\textbf{ere is some sample text to show the initial in the introductory paragraph of this template article. The color and lineheight of the initial can be modified in the preamble of this document.}
+\initial{D}\textbf{atabases nowadays are one of the most important tools in our day by day labours, and it use is fundamental in all kind of activities that include the manipulation and store of data.\\
+In Databases world, there are a lot of specifications. One of them is focused in the analysis of data, and not in transactions or any other kind of process. For this needs, Multidimensional databases are a great tool, that allow to analyse data according to some patterns that include different parameters of searching.}
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
 
-\section*{Section 1}
+
+%------------------------------------------------
+%Introducción ¿Qué es una base de datos Multidimensional?
+%------------------------------------------------
+\section*{Introducci\'{o}n ¿Qu\'{e} es una Base de Datos Multidimensional?}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+
+%------------------------------------------------
+%Modelo Multidimensional de Base de Datos
+%------------------------------------------------
+
+\section*{Modelo Multidimensional de Base de Datos}
+
+\lipsum[8] % Dummy text
+
+\begin{description}
+\item[First] This is the first item
+\item[Last] This is the last item
+\end{description}
+
+\lipsum[9] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Bases de Datos Multidimensionales}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Data Warehouse}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Esquemas Data Warehouse}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Procesos y Medidas de Negocio}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+
+%------------------------------------------------
+%Diseño de análisis OLAP
+%------------------------------------------------
+\section*{Dise\~{n}o de an\'{a}lisis OLAP}
 
 \lipsum[1-3] % Dummy text
 
@@ -115,7 +212,7 @@ A_{21} & A_{22}
 
 %------------------------------------------------
 
-\subsection*{Subsection 1}
+\subsection*{Qu\'{e} es OLAP?}
 
 \lipsum[5] % Dummy text
 
@@ -129,7 +226,7 @@ A_{21} & A_{22}
 
 %------------------------------------------------
 
-\subsection*{Subsection 2}
+\subsection*{Tipos de OLAP}
 
 \lipsum[7] % Dummy text
 
@@ -150,16 +247,370 @@ Richard & Miles & $2$ \\
 
 %------------------------------------------------
 
-\section*{Section 2}
+\subsection*{Elementos de OLAP}
 
-\lipsum[8] % Dummy text
+\lipsum[7] % Dummy text
 
-\begin{description}
-\item[First] This is the first item
-\item[Last] This is the last item
-\end{description}
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\lipsum[9] % Dummy text
+%------------------------------------------------
+
+\subsection*{Reglas OLAP de E. F. Codd}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{MDX (Multidimensional Query eXpressions) o el SQL de OLAP}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+%------------------------------------------------
+%Introducción al Modelo LC
+%------------------------------------------------
+\section*{Introducci\'{o}n al Modelo LC}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Metadata gen\'{e}rica y no gen\'{e}rica}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Jerarqu\'{i}a como parte intr\'{i}nseca de una dimensi\'{o}n}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------
+
+\subsection*{Qu\'{e} constituye un cubo?}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+%------------------------------------------------
+
+\subsection*{C\'{o}mo interpretar las células aisladas?}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+%------------------------------------------------
+
+\subsection*{D\'{o}nde pertenecen las f\'{o}rmulas?}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+%------------------------------------------------
+%Estructura interna de una dimensión
+%------------------------------------------------
+\section*{Estructura interna de una dimensi\'{o}n}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Aspectos base no jerárquicos}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item M\'{e}todo de definici\'{o}n
+\item Ordenamiento 
+\item M\'{e}tricas
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Tipos de estructuras jer\'{a}rquicas}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------
+%Cubo OLAP en SQL Server
+%------------------------------------------------
+\section*{Cubo OLAP en SQL Server}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{C\'{o}mo crear un cubo OLAP en SQL Server?}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Consultas al cubo OLAP}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%------------------------------------------------
+
+\subsection*{Consultas MDX vs Consultas SQL}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Cubo OLAP vs Base de datos Relacional}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+
+%------------------------------------------------
+%HiperCubos
+%------------------------------------------------
+\section*{Hipercubos}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+
+%------------------------------------------------
+%Conclusiones
+%------------------------------------------------
+\section*{Conclusiones}
+
+\lipsum[1-3] % Dummy text
+
+\begin{align}
+A = 
+\begin{bmatrix}
+A_{11} & A_{21} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\end{align}
+
+\lipsum[4] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Cuando usar una base de datos Multidimensional?}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
+
+%------------------------------------------------
+
+\subsection*{Ventajas y Desventajas de las bases de datos Multidimensionales}
+
+\lipsum[7] % Dummy text
+
+\begin{table}
+\caption{Random table}
+\centering
+\begin{tabular}{llr}
+\toprule
+\multicolumn{2}{c}{Name} \\
+\cmidrule(r){1-2}
+First name & Last Name & Grade \\
+\midrule
+John & Doe & $7.5$ \\
+Richard & Miles & $2$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+%------------------------------------------------
+
+\subsection*{Comparaci\'{o}n entre tipos de OLAP}
+
+\lipsum[5] % Dummy text
+
+\begin{itemize}
+\item First item in a list 
+\item Second item in a list 
+\item Third item in a list
+\end{itemize}
+
+\lipsum[6] % Dummy text
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -167,11 +618,16 @@ Richard & Miles & $2$ \\
 
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
+\bibitem[]{Ramakrishnan:2003dg}
+Ramakrishnan, R.~ Gehrke, J. (2003).
+\newblock SISTEMAS DE GESTION DE ´
+BASES DE DATOS (Tercera ed.).
+\newblock {\em Espa\~{n}a: McGraw-Hill.}
+
+\bibitem[]{Thomsen:2003dg}
+Thomsen, E. (2002).
+\newblock OLAP Solutions: Building Multidimentional Information Systems (Segunda ed.).
+\newblock {\em New York: John Wiley & Sons.}
  
 \end{thebibliography}
 
