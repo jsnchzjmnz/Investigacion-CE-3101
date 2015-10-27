@@ -28,6 +28,7 @@
 \usepackage{amsmath,amsfonts,amsthm} % Math packages
 \usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{graphicx}
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{fix-cm}	 % Custom font sizes - used for the initial letter in the document
 
@@ -73,14 +74,14 @@
 
 \preauthor{\begin{flushleft}\large \lineskip 0.5em \usefont{OT1}{phv}{b}{sl} \color{DarkRed}} % Author font configuration
 
-\author{Julio S\'{a}nchez,Maikol Barrantes,Frander Granados } % Your name
+\author{Julio S\'{a}nchez, Maikol Barrantes, Frander Granados } % Your name
 
 \postauthor{\footnotesize \usefont{OT1}{phv}{m}{sl} \color{Black} % Configuration for the institution name
-Tecnol\'{o}gico de Costa Rica % Your institution
+Instituto Tecnol\'{o}gico de Costa Rica % Your institution
 
 \par\end{flushleft}\HorRule} % Horizontal rule after the title
 
-\date{29/09/2015} % Add a date here if you would like one to appear underneath the title block
+\date{Viernes 2 de Octubre del 2015} % Add a date here if you would like one to appear underneath the title block
 
 %----------------------------------------------------------------------------------------
 
@@ -102,515 +103,550 @@ In Databases world, there are a lot of specifications. One of them is focused in
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
 
-
 %------------------------------------------------
 %Introducción ¿Qué es una base de datos Multidimensional?
 %------------------------------------------------
-\section*{Introducci\'{o}n ¿Qu\'{e} es una Base de Datos Multidimensional?}
+\section*{Introducci\'{o}n}
 
-\lipsum[1-3] % Dummy text
+\subsection*{¿Qu\'{e} es una Base de Datos Multidimensional?}
 
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
+Una base de datos multidimensional (MDB) es un tipo de base de datos que se ha optimizado para data warehouse y 
+aplicaciones de procesamiento anal\'{i}tico en l\'{i}nea (OLAP). Se crean con frecuencia usando entradas de las 
+bases de datos relacionales existentes. Se accede medienta consultas a OLAP las cuales ser\'{i}an sumamente complejas mediante SQL.\\
+Una base de datos multidimensional no tiene como prioridad la transaccionalidad, es decir, que las acciones se realicen de 
+forma at\'{o}mica y segura, sino el an\'{a}lisis de datos para generar informaci\'{o}n para ser usada en  la toma de decisiones.
+La distinci\'{o}n entre decisi\'{o}n y transacci\'{o}n radica b\'{a}sicamente en el nivel de an\'{a}lisis que requiere una 
+en comparaci\'{o}n con la otra.
+Mientras en una transacci\'{o}n el an\'{a}lisis es poco o nulo, ya que eval\'{u}a ciertos datos para determinar c\'{o}mo 
+llevar a cabo una acci\'{o}n, la decisi\'{o}n requiere el an\'{a}lisis de datos, e informaci\'{o}n en base a los patrones 
+y resultados obtenidos, para as\'{i} obtener informaci\'{o}n m\'{a}s detallada, y un mejor respaldo en la toma de 
+decisiones en determinadas situaciones principalmente administrativas. De esta forma se puede saber c\'{o}mo una empresa 
+u organizaci\'{o}n ha estado llevando a cabo  sus tareas, y as\'{i} proponer posibles mejoras.
 
 
 %------------------------------------------------
 %Modelo Multidimensional de Base de Datos
 %------------------------------------------------
 
-\section*{Modelo Multidimensional de Base de Datos}
-
-\lipsum[8] % Dummy text
-
-\begin{description}
-\item[First] This is the first item
-\item[Last] This is the last item
-\end{description}
-
-\lipsum[9] % Dummy text
-
-%------------------------------------------------
-
+\section*{Modelo Multidimensional }
 \subsection*{Bases de Datos Multidimensionales}
 
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
+Las bases de datos multidimensionales se utilizan principalmente para crear aplicaciones OLAP, se pueden ver como bases de datos de solo una tabla. Algo peculiar es que por cada dimensi\'{o}n tiene un campo y para cada hecho tiene otro campo, es como una tabla con profundidad donde se tienen 3 ejes.\\
 
 %------------------------------------------------
 
 \subsection*{Data Warehouse}
+Un Data Warehouse o DW es una base de datos que almacena informaci\'{o}n para la toma de decisiones. Dicha informaci\'{o}n es construida
+a partir de bases de datos que registran las transacciones de los negocios de la organizaci\'{o}n.\\
+El objetivo de los Data Warehouse es consolidar informaci\'{o}n proveniente de diferentes bases de datos operacionales
+y hacerla disponible para la realizaci\'{o}n de an\'{a}lisis de datos de tipo gerencial. Los datos del DW son el resultado de 
+transformaciones, chequeos de control de calidad e integraci\'{o}n de los datos operacionales.\\
+Las diferencias de los DWs con las bases de datos tradicionales, sobre todo en cuanto al tipo de consultas esperada en las mismas, 
+hacen que las estrategias de dise\'{n}o y los modelos de datos utilizadas para el DW sean diferentes.\\
+La prioridad en los DWs es el acceso interactivo e inmediato a informaci\'{o}n estrat\'{e}gica de un \'{a}rea de negocios. Los usuarios, 
+en general con perfil gerencial, realizan sus propias consultas y cruzamientos de datos, utilizando herramientas especializadas 
+con interfaces gr\'{a}ficas. Por lo tanto, las operaciones preponderantes no son las transacciones, como en las bases de datos operacionales, 
+sino consultas que involucran el cruzamiento de gran cantidad de datos.\\
+Las caracter\'{i}sticas de los DWs hacen que las estrategias de dise\~{n}o para las bases de datos operacionales generalmente no 
+sean aplicables para el dise\~{n}o de DWs.\\
+A nivel conceptual se proponen modelos multidimensionales, que representan la informaci\'{o}n como matrices multidimensionales 
+o cuadros de m\'{u}ltiples entradas denominados cubos. A los ejes de la matriz se los llama dimensiones y representan los criterios 
+de an\'{a}lisis, y a los datos almacenados en la matriz se los llama medidas y representan los indicadores o valores a analizar. 
+A nivel l\'{o}gico surgen implementaciones de los cubos tanto para bases de datos relacionales como multidimensionales. Para el caso 
+de bases relacionales surgen nuevas t\'{e}cnicas y estrategias de dise\~{n}o que apuntan esencialmente a optimizar la rapidez en las 
+consultas introduciendo redundancia.\\
+Los sistemas de Data Warehousing han sido objeto de variados trabajos de investigaci\'{o}n en la \'{u}ltima d\'{e}cada.\\
+Sus marcadas diferencias con los sistemas operacionales provocaron el estudio de nuevas t\'{e}cnicas y metodolog\'{i}as de dise\~{n}o.\\
+Como en los sistemas de bases de datos tradicionales, el proceso de dise\~{n}o del DW puede dividirse en tres etapas secuenciales: dise\~{n}o conceptual, 
+dise\~{n}o l\'{o}gico y dise\~{n}o f\'{i}sico.\\
+El dise\~{n}o conceptual tiene por objetivo la construcci\'{o}n de una descripci\'{o}n abstracta y completa del problema. Comienza con el an\'{a}lisis  de requerimientos de los usuarios y de reglas de negocio, y finaliza con la construcci\'{o}n de un esquema conceptual expresado en 
+t\'{e}rminos de un modelo conceptual.\\
+La etapa de dise\~{n}o l\'{o}gico toma como entrada un esquema conceptual y genera un esquema l\'{o}gico relacional o multidimensional. La dificultad principal es encontrar un esquema l\'{o}gico que satisfaga no s\'{o}lo los requerimientos funcionales de informaci\'{o}n, sino tambi\'{e}n requerimientos de rendimiento en la realizaci\'{o}n de consultas complejas de an\'{a}lisis de datos. Esto tiene particular impacto en el caso de usarse bases relacionales, ya que las consultas de an\'{a}lisis de datos incluyen operaciones muy costosas para DBMS relacionales.
 
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
-
-%------------------------------------------------
+%---------------------------------------
 
 \subsection*{Esquemas Data Warehouse}
+Esquema en estrella\\
+Consiste en estructurar la informaci\'{o}n en procesos, vistas y m\'{e}tricas recordando a una estrella. Es decir, tendremos una visi\'{o}n 
+multidimensional de un proceso que medimos a trav\'{e}s de unas m\'{e}tricas.\\
+A nivel de dise\~{n}o, consiste en una tabla de hechos o fact table en el centro para el hecho objeto de an\'{a}lisis y una o varias 
+tablas de dimensi\'{o}n por cada dimensi\'{o}n de an\'{a}lisis que participa de la descripci\'{o}n de ese hecho. En la tabla de hecho encontramos
+los atributos destinados a medir el hecho, sus m\'{e}tricas. Mientras, en las tablas de dimensi\'{o}n, los atributos se destinan a 
+elementos de nivel que representan los distintos niveles de las jerarqu\'{i}as de dimensi\'{o}n y a atributos de dimensi\'{o}n encargados 
+de la descripci\'{o}n de estos elementos de nivel. En el esquema en estrella la tabla de hechos es la \'{u}nica tabla del esquema 
+que tiene m\'{u}ltiples joins que la conectan con otras tablas los foreign keys hacia otras tablas. El resto de tablas del 
+esquema \'{u}nicamente hacen join con esta tabla de hechos. Las tablas de dimensi\'{o}n se encuentran 
+adem\'{a}s totalmente denormalizadas, es decir, toda la informaci\'{o}n referente a una dimensi\'{o}n se almacena en la misma tabla.\\
+Un ejemplo es el siguiente:\\
 
-\lipsum[5] % Dummy text
+\includegraphics[scale=0.4]{Esquema_en_estrella.png}
+Raz\'{o}n para utilizar los esquemas en estrella es su simplicidad desde el punto de vista del usuario final. Las consultas no son 
+complicadas, ya que las condiciones y las uniones (JOIN) necesarias s\'{o}lo involucran a la tabla de hechos y a las de dimensiones, 
+no haciendo falta que se encadenen uniones y condiciones a dos o m\'{a}s niveles como ocurrir\'{i}a en un esquema en copo de nieve. En 
+la mayor\'{i}a de los casos son preferibles los de estrellas por su simplicidad respecto a los de copo de nieve por ser m\'{a}s f\'{a}ciles de manejar.\\
+Esquema en copo de nieve\\
+El esquema en copo de nieve es un esquema de representaci\'{o}n derivado del esquema en estrella, en el que las tablas de 
+dimensi\'{o}n se normalizan en m\'{u}ltiples tablas. Por esta raz\'{o}n, la tabla de hechos deja de ser la \'{u}nica tabla del esquema 
+que se relaciona con otras tablas, y aparecen nuevos joins gracias a que las dimensiones de an\'{a}lisis se representan 
+ahora en tablas de dimensi\'{o}n normalizadas. En la estructura dimensional normalizada, la tabla que representa el nivel 
+base de la dimensi\'{o}n es la que hace join directamente con la tabla de hechos. Para conseguir un esquema en copo de nieve se toma un 
+esquema en estrella y se conserva la tabla de hechos, centr\'{a}ndose \'{u}nicamente en el modelado de las tablas de dimensi\'{o}n, 
+que si bien en el esquema en estrella se encontraban totalmente denormalizadas, ahora se dividen en subtablas tras un 
+proceso de normalizaci\'{o}n. \\
+Un ejemplo es el siguiente:\\
+\includegraphics[scale=0.4]{copo.png}
 
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
+El \'{u}nico argumento a favor de los esquemas en copo de nieve es que al estar normalizadas las tablas de dimensiones, 
+se evita la redundancia de datos y con ello se ahorra espacio. Pero si tenemos en cuenta que hoy en d\'{i}a, el espacio en 
+disco no suele ser un problema, y s\'{i} el rendimiento, se presenta con una mala opci\'{o}n en Data warehouse, ya que el hecho de 
+disponer de m\'{a}s de una tabla por cada dimensi\'{o}n de la tabla de hechos implica tener que realizar c\'{o}digo m\'{a}s complejo para 
+realizar una consulta que a su vez se ejecutar\'{a} en un tiempo mayor.
 
 %------------------------------------------------
 
-\subsection*{Procesos y Medidas de Negocio}
+\subsection*{Procesos y Medidas del Negocio}
 
-\lipsum[5] % Dummy text
+Un proceso de negocio es un conjunto de tareas relacionadas l\'{o}gicamente llevadas a cabo para lograr un resultado de negocio definido. Cada 
+proceso de negocio tiene sus entradas, funciones y salidas. Las entradas son requisitos que deben tenerse antes de que una funci\'{o}n 
+pueda ser aplicada. Cuando una funci\'{o}n es aplicada a las entradas de un m\'{e}todo, tendremos ciertas salidas resultantes. 
+Es una colecci\'{o}n de actividades estructurales relacionadas que producen un valor para la organizaci\'{o}n, sus inversores o sus clientes. 
+Es, por ejemplo, el proceso a trav\'{e}s del que una organizaci\'{o}n ofrece sus servicios a sus clientes. 
+Un proceso de negocio puede ser parte de un proceso mayor que lo abarque o bien puede incluir otros procesos de negocio que deban ser 
+incluidos en su funci\'{o}n. En este contexto un proceso de negocio puede ser visto a varios niveles de granularidad. El enlace entre 
+procesos de negocio y generaci\'{o}n de valor lleva a algunos practicantes a ver los procesos de negocio como los flujos de trabajo que 
+efect\'{u}an las tareas de una organizaci\'{o}n.\\
 
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
-
+Una medida es tomada en la intersecci\'{o}n de todas las dimensiones, por ejemplo: producto, ciudad y fecha. Esta lista de dimensiones define 
+la granularidad de la tabla de hechos y nos dice cu\'{a}l es el alcance de las mediciones. \\
+Una fila es una tabla de hechos corresponde a una medida. Todas las medidas en la tabla de hechos deben de tener la misma granularidad.\\
 
 %------------------------------------------------
 %Diseño de análisis OLAP
 %------------------------------------------------
 \section*{Dise\~{n}o de an\'{a}lisis OLAP}
 
-\lipsum[1-3] % Dummy text
-
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
-
-%------------------------------------------------
-
 \subsection*{Qu\'{e} es OLAP?}
 
-\lipsum[5] % Dummy text
+\textit{``OLAP es un m\'{e}todo \'{a}gil y flexible para organizar datos, especialmente metadatos, sobre un objeto o jerarqu\'{i}a de objetos como en un sistema multidimensional y cuyo objetivo es recuperar y manipular datos y combinaciones de los mismos a trav\'{e}s de consultas o incluso informes"}
 
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
+Podemos suponer, que una herramienta OLAP est\'{a} compuesta por un motor y un visor. La diferencia y al mismo tiempo la ventaja que tienen estos sistemas, es que permiten realizar consultas de manera sencilla, las cuales mediante SQL pueden llegar a ser sumamente complejas.
 
-\lipsum[6] % Dummy text
+\begin{center}
+\includegraphics[scale=0.4]{cuboOLAP.PNG}
+\end{center}
+
+Por ejemplo: imaginemos que nos piden un informe del margen de ganancia de la venta de bicicletas para febrero del 2007, si tenemos un cubo como el anterior solamente basta con encontrar el plano que representa la intersecci\'{o}n entre Bicicletas (En el eje de categorías de productos), con Margen de Ganancia (En el eje de Medidas) y el mes de Febrero (En el eje del tiempo).
+Otra ventaja con respecto a los sistemas SQL, es que permite a cualquier usuario (con o sin conocimientos de SQL) hacer consultas o informes.\\
+
+OLAP puede tener muchos significados,  principalmente porque puede ser analizado desde distintas capas tecnol\'{o}gicas. Es decir, se puede perfectamente hablar de conceptos OLAP, lenguajes OLAP, capas de productos OLAP y productos OLAP completos.
+Thomsen se\~{n}ala en su libro \textit{OLAP SOLUTIONS}, que entre los lenguajes formales OLAP se incluye el Data Definition Language(DDL), el Data Manipulation Language (DML), contemplados tambi\'{e}n en SQL, adem\'{a}s del Data Representation Language (DRL) y los parsers y compiladores que se requieran.
+Los conceptos de OLAP incluyen la idea de m\'{u}ltiples dimensiones jer\'{a}rquicas para abstraer datos almacenados relacionados a ambientes o situaciones del mundo real, y pensarlos de una forma m\'{a}s clara. Esto aplica para econom\'{i}a y finanzas, modelos de an\'{a}lisis at\'{o}mico o gal\'{a}ctico, analizar la sociedad desde lo interpersonal hasta lo internacional, etc.\\
+El uso de Olap puede ser aplicado en cualquier organizaci\'{o}n que requiera procesamiento de informaci\'{o}n y es fundamental en cualquier actividad de negocios. El contar con buena informaci\'{o}n y buenas metodolog\'{i}as de an\'{a}lisis, es un gran determinante en la toma de decisiones, que pod\'{i}a determinar el rumbo de una empresa.
+Por lo tanto, OLAP es una herramienta muy \'{u}til para toda aquella actividad que maneje informaci\'{o}n para la toma de decisiones.
 
 %------------------------------------------------
 
 \subsection*{Tipos de OLAP}
+La principal diferencia entre cada uno de estos sistemas es la forma en la que almacenan sus datos.
 
-\lipsum[7] % Dummy text
+\begin{enumerate}
 
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\item MOLAP (en ingl\'{e}s \textit{Multidimensional OLAP}): %molap
+Es la forma cl\'{a}sica de OLAP, lo que conocemos como bases de datos multidimensionales o tambi\'{e}n Cubos. Consiste en un fichero el cual contiene todas las posibles consultas precalculadas, a diferencia de las bases de datos relacionales, estos ficheros est\'{a}n optimizados para los c\'{a}lculos, tambi\'{e}n para la recuperaci\'{o}n a lo largo de patrones jer\'{a}rquicos de acceso.
+
+\item ROLAP (en ingl\'{e}s \textit{Relational OLAP}): %rolap
+Trabaja directamente con las bases de datos relacionales, las cuales almacenan los datos base y las tablas bidimensionales, mientras que se crean nuevas tablas para almacenar la informaci\'{o}n guardada.
+
+\item HOLAP (en ingl\'{e}s \textit{Hybrid OLAP}): %holap
+Trabaja con cubos y con bases de datos relacionales al mismo tiempo.
+
+\item DOLAP (en ingl\'{e}s \textit{Desktop OLAP}): %dolap
+Est\'{a} orientado a equipos de escritorio, es decir obtiene la informaci\'{o}n de una base de datos relacional y la guarda en el escritorio, las consultas y los an\'{a}lisis los realiza sobre los datos almacenados en el escritorio.\\
+
+\item In-memory OLAP: 
+La estructura multidimensional se genera solamente a nivel de memoria, y se guarda el dato original en alg\'{u}n formato que potencia su despliegue en esa forma.
+
+\item SOLAP (en ingl\'{e}s \textit{Spatial OLAP}):
+La arquitectura de un sistema SOLAP se compone de una base de datos espacio-temporal multidimensionalmente estructurado, un servidor y un cliente SOLAP. La base de datos espacio-temporal almacena la geometr\'{i}a asociada con miembros de la dimensi\'{o}n espacial y medidas espaciales. El servidor SOLAP gestiona la base de datos multidimensional espacio-temporal y los c\'{a}lculos num\'{e}ricos y espaciales necesarios para calcular los valores de medida asociados a las posibles combinaciones de miembros de dimensi\'{o}n.
+
+\end{enumerate}
+
+La mayor dificultad de implementar un sistema OLAP se encuentra en la formaci\'{o}n de consultas.
 
 %------------------------------------------------
 
 \subsection*{Elementos de OLAP}
 
-\lipsum[7] % Dummy text
+Las bases de datos OLAP contienen dos tipos básicos de datos: medidas (o celdas), son los valores que se est\'{a}n analizando, pueden ser datos numéricos, cantidades o promedios; y  ejes (o dimensiones), corresponden a las categor\'{i}as que se utilizan para organizar las medidas. Algunos elementos son comunes en todas las tecnolog\'{i}as OLAP:
+\begin{itemize}
 
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\item \textbf{Tabla de hecho}: se le conoce como tabla de hecho al conjunto de medidas (o datos) que se ubican en alg\'{u}n punto de cualquier eje. Para el caso del cubo OLAP anterior, una tabla de hecho son todos los datos de \textit{Medidas} en todos los \textit{Meses} del 2007, solamente para un producto (ejemplo: bicicletas).
+
+\item \textbf{Esquema}: colecci\'{o}n de cubos, medidas, ejes y tablas de hecho.
+
+\item \textbf{Cubo}: colecci\'{o}n de ejes asociados a una tabla de hecho. Permite cruzar informaci\'{o}n entre tablas de hecho a partir de sus dimensiones comunes.
+
+\item \textbf{Jerarqu\'{i}a}: conjunto de miembros organizados en niveles, orden de atributos en una dimensi\'{o}n. Se puede entender como el ordenamiento de atributos en una dimensi\'{o}n
+
+\item \textbf{Nivel}: grupo de miembros en una jerarqu\'{i}a que tienen los mismos atributos y nivel de profundidad en la jerarqu\'{i}a.
+
+\item \textbf{Miembro}: Punto en la dimensi\'{o}n de un cubo que pertenece a un determinado nivel de jerarqu\'{i}a.
+
+\end{itemize}
 
 %------------------------------------------------
 
 \subsection*{Reglas OLAP de E. F. Codd}
-
-\lipsum[7] % Dummy text
-
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+La definición de OLAP presentada anteriormente est\'{a} basada en las doce reglas de Edgar F. Codd, las mismas determinan la fidelidad de un sistema relacional:
+\begin{enumerate}
+\item Vista conceptual multidimensional: se trabaja a partir de m\'{e}tricas (medidas) de negocio y sus dimensiones.
+\item Transparencia: el sistema OLAP debe ser abierto, soportar fuentes heterog\'{e}neas.
+\item Accesibilidad: se debe presentar el servicio OLAP al usuario con un \'{u}nico esquema l\'{o}gico de datos.
+\item Rendimiento de informes consistente: el rendimiento de los informes no deber\'{i}a degradarse cuando aumente el n\'{u}mero de dimensiones del modelo.
+\item Arquitectura cliente/servidor: debe permitir la interacci\'{o}n y la colaboraci\'{o}n.
+\item Dimensionalidad gen\'{e}rica: capacidad de crear todo tipo de dimensiones y con funcionalidades aplicables de una dimensi\'{o}n a otra.
+\item Dynamic sparse-matrix handling: debe diferenciar valores vac\'{i}os de valores nulos, e ignorar las celdas sin datos.
+\item Operaciones entre dimensiones sin restricciones: las operaciones entre dimensiones no deben restringir las relaciones entre celdas.
+\item Manipulaci\'{o}n de datos intuitivas: los usuarios a los que se destinan este tipo de sistemas son analistas y altos ejecutivos.
+\item Reporting flexible: los usuarios deben ser capaces de ajustar los resultados a sus informes.
+\item Niveles de dimensiones y de agregación ilimitados: no deben existir restricciones para construir cubos OLAP con dimensiones y con niveles de agregaci\'{o}n ilimitados.
+\end{enumerate}
 
 \subsection*{MDX (Multidimensional Query eXpressions) o el SQL de OLAP}
 
-\lipsum[7] % Dummy text
+MDX es un lenguaje de consultas OLAP creado en 1997 por Microsoft. No es un est\'{a}ndar pero diversos fabricantes lo han adoptado como el est\'{a}ndar. Imaginemos un Cubo de ventas con las siguientes propiedades:
+\begin{itemize}
+\item Temporal de las ventas con a\~{n}o y mes.
+\item Productos vendidos con niveles de familia de productos y productos.
+\item Medidas: importe de las ventas y unidades vendidas.
+\end{itemize}
+Para obtener el importe de las ventas en el a\~{n}o 2008 para la familia de productos l\'{a}cteos la consulta ser\'{i}a:
+\begin{verbatim}
+SELECT 
+{[medidas].[importe ventas]}
+on columns,
+{[tiempo].[2008]}
+on rows FROM [cubo ventas] 
+WHERE ([familia].[l\'{a}cteos])
+\end{verbatim}
+Nos damos cuenta que la estructura general de la consulta es de la forma:
+\texttt{SELECT ... FROM ... WHERE}
+Donde se cumple que:
+\begin{itemize}
+\item En el \texttt{SELECT} se especifica el conjunto de elementos que queremos visualizar (debemos especificar si se devuelve en filas o columnas).
+\item En el \texttt{FROM} el cubo de donde se extrae la informaci\'{o}n.
+\item En el \texttt{WHERE} las condiciones de filtrado.
+\item Las llaves \texttt{\{} y \texttt{\}} permiten crear listas de elementos en las selecciones.
+\item Los corchetes \texttt{[} y \texttt{]} encapsulan elementos de las dimensiones y niveles.
+\end{itemize}
 
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
 %------------------------------------------------
 %Introducción al Modelo LC
 %------------------------------------------------
 \section*{Introducci\'{o}n al Modelo LC}
 
-\lipsum[1-3] % Dummy text
-
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
+El modelo LC hace referencia a Located Contents, el cual es un superconjunto que permite imitar cualquier producto simplemente restringindose a s\'{i} mismo. Este modelo puede entenderse como un superconjunto que permite imitar cualquier producto simplemente restringi\'{e}ndose a s\'{i} mismo. Este est\'{a} compuesto de tipos y datos que est\'{a}n conectados funcionalmente a trav\'{e}s de uno o más esquemas. En este modelo se trabaja con tipos individuales, datos, y una variable dimensionada que vendr\'{i}a a ser como un esquema.
+En el modelo LC se puede tener tipos con jerarqu\'{i}a, ya sea simple o m\'{u}ltiple, o hasta sin jerarqu\'{i}a. Estos tipos pueden ser tratados con distintos operadores, por ejemplo productos cartesianos, en s\'{i}ntesis, estos se comportan como clases objeto, los cuales definen lo que se conoce como un dato estructurado. Adem\'{a}s no existen restricciones en los datos que se manejan, es decir, se puede manejar desde num\'{e}ricos, hasta audio o im\'{a}genes.
+Para relacionar los datos, se hace uso de asociaciones de tipos estructurados con los datos. Estos tipos estructurados, tal y como se mencion\'{o}, podr\'{i}an relacionar datos asociados a tiempos, costos y ventas, en base a productos cartesianos realizados a otros tipos.
+En cuanto a la definici\'{o}n de las estructuras de los tipos, hay que tener en cuenta que estos son fundamentales para la interpretaci\'{o}n de los datos, y pueden ser definidos desde los datos o en base a estos.
 
 %------------------------------------------------
 
 \subsection*{Metadata gen\'{e}rica y no gen\'{e}rica}
 
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
+La compresi\'{o}n de las dimensiones puede verse desde dos posiciones, entendi\'{e}ndola desde el \'{a}lgebra matricial como gu\'{i}a, lo que permite definir las estructuras de la metadata como dimensiones gen\'{e}ricas.
+La otra forma de entenderlo es mediante el c\'{a}lculo de predicados, lo que permite hacer una distinci\'{o}n entre dimensiones y variables. 
 
 %------------------------------------------------
 
-\subsection*{Jerarqu\'{i}a como parte intr\'{i}nseca de una dimensi\'{o}n}
+\subsection*{Si la Jerarqu\'{i}a forma parte intr\'{i}nseca de una dimensi\'{o}n}
 
-\lipsum[7] % Dummy text
-
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+El evaluar la jerarqu\'{i}a como un elemento de una dimensi\'{o}n requiere analizar la necesidad de la misma, y si esta est\'{a} asociada realmente como  una parte necesaria de la estructura de la dimensi\'{o}n, o si esta simplemente ayuda a determinar o definir las relaciones  que se dan entre  instancias de distintas dimensiones. Adem\'{a}s se debe evaluar si se va a considerar una relaci\'{o}n muchos a uno, como una relaci\'{o}n jer\'{a}rquica, o si esto se refiere \'{u}nicamente a supuestos que se interpretan como necesarios en las relaciones existentes entre los distintos nodos. Este tema se discutir\'{a} más detalladamente en las secciones de estructuras jer\'{a}rquicas y no jer\'{a}rquicas del siguiente cap\'{i}tulo.
 
 %------------------------------------------------
 
-\subsection*{Qu\'{e} constituye un cubo?}
+\subsection*{Qu\'{e} constituye un cubo}
 
-\lipsum[5] % Dummy text
+Existen interpretaciones que indican la forma en que se estructuran los cubos. Algunas indican que se estructuran en conjuntos de cubos que modelan los datos, como el caso de Express de Oracle. Otros como Essbase relacionan todos los datos en un hipercubos.
 
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
 %------------------------------------------------
 
-\subsection*{C\'{o}mo interpretar las células aisladas?}
+\subsection*{C\'{o}mo interpretar las celdas vac\'{i}as}
 
-\lipsum[5] % Dummy text
+Un factor a considerar en un sistema OLAP, es qu\'{e} hacer o c\'{o}mo manejar aquellos espacios en el cubo que quedan vacios. Se deben evaluar metodolog\'{i}as  para tratar estos elementos, ya sea considerandolos como datos perdidos que pueden venir luego, o como un espacio que no hace ni har\'{a} referencia a alg\'{u}n dato, debido a que la consulta realizada en base a las distintas dimensiones, no contiene informaci\'{o}n poco relevante en casos espec\'{i}ficos, como cumplea\~{n}os de la mascota, o nombre de la esposa. Adem\'{a}s, en cuanto a la interpretaci\'{o}n de estos valores vac\'{i}os, se debe evaluar de que forma, y si es necesario hacer distinci\'{o}n entre los valores perdidos, o los irrelevantes.
+Este aspecto es de suma importancia ya que debido a este detalle, se podr\'{i}an generar errores en c\'{a}lculos. Es importante considerar para esto, los procesos de parseo que OLAP ser\'{i}a capaz de ejecutar.
 
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
-%------------------------------------------------
-
-\subsection*{D\'{o}nde pertenecen las f\'{o}rmulas?}
-
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
 %------------------------------------------------
 %Estructura interna de una dimensión
 %------------------------------------------------
 \section*{Estructura interna de una dimensi\'{o}n}
 
-\lipsum[1-3] % Dummy text
-
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
-
 %------------------------------------------------
 
-\subsection*{Aspectos base no jerárquicos}
+\subsection*{Estructuras no jer\'{a}rquicas}
+Estos tipos, trabajan con tipos, los cuales no tienen estructura basada en jerarquía, los aspectos b\'{a}sicos, que se consideran en estas estructuras de tipo, son cardinalidad, las m\'{e}tricas, el ordenamiento y el m\'{e}todo de definici\'{o}n.
 
-\lipsum[5] % Dummy text
+\subsection*{M\'{e}todo de definici\'{o}n}
+En una dimensi\'{o}n se encuentran instancias, las cuales requieren ser definidas de forma expl\'{i}cita  y que responda a f\'{o}rmulas, reglas, o procesos. De esta forma las instancias de una dimensi\'{o}n, que se vayan a considerar pueden ser tratadas como v\'{a}lidas, y de esta forma intentar hacer match entre instancias de  las dimensiones.
+ 
+\subsection*{Cardinalidad}
+Cardinalidad se entiende como una cantidad de elementos que pertenecen a un grupo de elementos. En cuanto a una dimensi\'{o}n, la cardinalidad se refiere al n\'{u}mero o cantidad de instancias que se encuentran en dicha dimensi\'{o}n.
 
-\begin{itemize}
-\item M\'{e}todo de definici\'{o}n
-\item Ordenamiento 
-\item M\'{e}tricas
-\end{itemize}
+\subsection*{M\'{e}tricas} 
+Todas las instancias realizadas sobre los tipos, están asociadas con las m\'{e}tricas, y estas se refieren a ese elemento que identifica ese conjunto de instancias de un mismo tipo. Es decir, si por ejemplo se tienen definidos un conjunto de productos, zapato, sombrero y calzones; se tiene como instancias zapato, sombrero y calzones, y la m\'{e}trica ser\'{i}a producto.
+En m\'{e}tricas asociadas a tipos simples, posiblemente no sea necesario el uso de jerarqu\'{i}as. Pero  si el caso es complejo, se puede requerir el uso de esta, para trabajar con m\'{e}tricas asociadas a estructuras de tipo complejas que podr\'{i}an incluir otros tipos y a su vez otras m\'{e}tricas.
 
-\lipsum[6] % Dummy text
+\subsection*{Ordenamiento}
 
-%------------------------------------------------
+En cuanto al ordenamiento de instancias, en estructuras no jer\'{a}rquicas este puede darse de tres formas b\'{a}sicamente. El primero se refiere a las instancias ordenadas nominalmente, el cual permite \'{u}nicamente determinar si dos instancias son iguales o no. Es decir, no se maneja accesos a elementos siguiente y anterior, o inicial y final.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+• & i1 & i2 & i3 & i4 \\ 
+\hline 
+i1 & $=$ & $!=$ & $!=$ & $!=$ \\ 
+\hline 
+i2 & $!=$ & $=$ & $!=$ & $!=$ \\ 
+\hline 
+i3 & $!=$ & $!=$ & $=$ & $!=$ \\ 
+\hline 
+i4 & $!=$ & $!=$ & $!=$ & $=$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+En el ordenamiento de instancias ordinalmente, se pueden definir rangos entre las instancias con las que se trabaja, a\'{u}n as\'{i}, sin manejar posiciones o distancias entre las instancias. Es decir, este ordenamiento requiere de hacer uso  de posiciones relativas como anterior o siguiente. De esta forma se puede manejar el concepto de direcci\'{o}n a partir de la posici\'{o}n inicial y hacia qu\'{e} instancia se moviliza.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+• & i1 & i2 & i3 & i4 \\ 
+\hline 
+i1 & $=$ & $<$ & $<$ & $<$ \\ 
+\hline 
+i2 & $>$ & $=$ & $<$ & $<$ \\ 
+\hline 
+i3 & $>$ & $>$ & $=$ & $<$ \\ 
+\hline 
+i4 & $>$ & $>$ & $>$ & $=$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
+Las  instancias ordenadas cardinalmente, a diferencia de las anteriores, s\'{i} consideran distancias entre las instancias en un rango que se ordena. De esta forma se pueden considerar de forma m\'{a}s sencilla propiedades como tiempo, dimensiones espaciales, dimensiones num\'{e}ricas, etc.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+• & i1 & i2 & i3 & i4 \\ 
+\hline 
+i1 & $+/-0$ & $-1$ & $-2$ & $-3$ \\ 
+\hline 
+i2 & $+1$ & $+/-0$ & $-1$ & $-2$ \\ 
+\hline 
+i3 & $+2$ & $+1$ & $+/-0$ & $-1$ \\ 
+\hline 
+i4 & $+3$ & $+2$ & $+1$ & $+/-0$ \\ 
+\hline 
+\end{tabular} 
+\end{center}
 
 \subsection*{Tipos de estructuras jer\'{a}rquicas}
 
-\lipsum[7] % Dummy text
+En la mayor\'{i}a de dimensiones que se relacionen con negocios o ciencia, se cuenta con estructura jer\'{a}rquica. Si se desea entender de forma ejemplificada una dimensi\'{o}n jer\'{a}rquica, se puede mencionar el tiempo, ya que su estructura cuenta con a\'~{n}os, meses, d\'{i}as, horas, segundos, etc; los cuales se pueden componer o descomponer los unos en los otros.
+Se dice que hay jerarqu\'{i}a cuando en una estructura de tipo, se pueden encontrar diferentes m\'{e}tricas, las cuales pueden ser intertransferibles entre las diferentes instancias. Es decir, cuando una dimensi\'{o}n se compone de instancias que no pertenecen a las mismas m\'{e}tricas.
+Entre los tipos tipos de jerarqu\'{i}as dimensionales que se mensionar\'{a}n se encuentra.
 
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsubsection*{Jerarqu\'{i}a en general}
+En t\'{e}rminos generales, se debe entender una estructura jer\'{a}rquica como una relaci\'{o}n padre\-hijo, uno a muchos, o similar en la que se cuente con un tipo de acceso en base a los predecesores y antecesores del elemento( para nuestro caso las instancias), de forma tal que sea permitido moverse sobre estos niveles.
+
+\subsubsection*{Jerarqu\'{i}as andrajosas o asi\'{e}tricas}
+Si se imaginara este tipo de jerarqu\'{i}as en base a un \'{a}rbol binario, se echar\'{i}a de ver que entre los elementos o instancias que se encuentran a la misma distancia con respecto a la ra\'{i}z, estos no tienen la misma distancia con respecto a las hojas correspondientes a cada uno. Es decir, el \'{a}rbol se ver\'{i}a de forma desbalanceada y contar\'{i}a con hojas en niveles muy distintos.
+
+\subsubsection*{Jerarqu\'{i}as sim\'{e}tricas}
+Este tipo de jerarqu\'{i}a, a diferencia de la anterior, cuenta para cada uno de los elementos o instancias a la misma distancia entre esta y la ra\'{i}z, con la misma distancia entre esta misma cada una de sus respectivas hojas. Es decir, un arboles se visualizar\'{i}a completamente balanceado y con sus hojas a un mismo nivel.
+
+\subsubsection*{Jerarqu\'{i}as desviadas}
+Este tipo de Jerarqu\'{i}a utiliza psedoniveles, los cuales se refieren a un tipo de nivel que considera \'{u}nicamente el nivel de inter\'{e}s, considerando que hasta este punto el arbos se comporte como una estructura sim\'{e}trica, e ignorando el hecho de que existan niveles inferiores que podrían generar una jerarqu\'{i}a andrajosa en caso de que se les considere.
+
+\subsubsection*{Jerarqu\'{i}as mixtas}
+En este tipo de estructura jer\'{a}rquica, se incorporan tanto las caracter\'{i}sticas de las jerarqu\'{i}as sim\'{e}tricas como las de las andrajosas o asim\'{e}tricas. Esto es funcional para considerar casos en los que una jerarqu\'{i}a puede ser considerada por la aplicaci\'{o}n de una forma u otra, dependiendo de los requerimientos.
+En este tipo de Jerarqu\'{i}as, las instancias de cualquier nivel no deber\'{i}an contener ninguna relaci\'{o}n padre hijo, y por cualquieras dos niveles A y B adyacentes el uno con el otro, donde las instancias de A se consideren superiores a B, cada instancia de A debe contener al menos una instancia hija en el nivel B,  y ninguna instancia hija que no se encuentre en el nivel B.
 
 %------------------------------------------------
 %Cubo OLAP en SQL Server
 %------------------------------------------------
-\section*{Cubo OLAP en SQL Server}
-
-\lipsum[1-3] % Dummy text
-
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
+%\section*{Cubo OLAP en SQL Server}
 
 %------------------------------------------------
 
-\subsection*{C\'{o}mo crear un cubo OLAP en SQL Server?}
-
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
+%\subsection*{C\'{o}mo crear un cubo OLAP en SQL Server?}
 
 %------------------------------------------------
 
-\subsection*{Consultas al cubo OLAP}
-
-\lipsum[7] % Dummy text
-
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+%\subsection*{Consultas al cubo OLAP}
 
 %------------------------------------------------
 
-\subsection*{Consultas MDX vs Consultas SQL}
-
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
+%\subsection*{Consultas MDX vs Consultas SQL}
 
 %------------------------------------------------
 
-\subsection*{Cubo OLAP vs Base de datos Relacional}
-
-\lipsum[5] % Dummy text
-
-\begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
-\end{itemize}
-
-\lipsum[6] % Dummy text
-
+%\subsection*{Cubo OLAP vs Base de datos Relacional}
 
 %------------------------------------------------
 %HiperCubos
 %------------------------------------------------
+
 \section*{Hipercubos}
 
-\lipsum[1-3] % Dummy text
+\subsection*{ETL (Extract, transform and load)}
 
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
+Es el proceso que permite a las organizaciones mover datos desde m\'{u}ltiples fuentes, reformatearlos, limpiarlos, y cargarlos 
+en otra base de datos, data mart, o data warehouse para analizar, o en otro sistema operacional para apoyar un proceso de negocio.\\
+Los procesos ETL tambi\'{e}n se pueden utilizar para la integraci\'{o}n con sistemas heredados, aplicaciones antiguas existentes en 
+las organizaciones que se han de integrar con los nuevos aplicativos, por ejemplo, ERP´s. La tecnolog\'{i}a utilizada en dichas 
+aplicaciones puede hacer dif\'{i}cil la integraci\'{o}n con los nuevos programas.\\
 
-\lipsum[4] % Dummy text
+Esquema T\'{i}pico de Herramienta ETL\\
 
+\includegraphics[scale=0.5]{etl.png} 
+
+Proceso de Extracci\'{o}n con ETL\\
+La primera parte del proceso ETL consiste en extraer los datos desde los sistemas de origen. La mayor\'{i}a de los proyectos 
+de almacenamiento de datos fusionan datos provenientes de diferentes sistemas de origen. Cada sistema separado puede usar
+una organizaci\'{o}n diferente de los datos o formatos distintos. Los formatos de las fuentes normalmente se encuentran en 
+bases de datos relacionales o ficheros planos, pero pueden incluir bases de datos no relacionales u otras estructuras 
+diferentes. La extracci\'{o}n convierte los datos a un formato preparado para iniciar el proceso de transformaci\'{o}n.
+Los datos de la extracci\'{o}n son analizados para verificar si los datos cumplen la pauta o estructura que se esperaba. De 
+no ser as\'{i} los datos son rechazados. Como requerimiento si el origen de los datos es muy grande puede hacer que el 
+proceso se haga de manera lenta o colapse, por lo que se definen horarios o datos donde el impacto sea m\'{i}nimo o nulo.\\
+
+Proceso de Transformaci\'{o}n con ETL\\
+La fase de transformaci\'{o}n consiste en aplicar una serie de reglas de negocio o funciones sobre los datos extra\'{i}dos 
+para convertirlos en datos que ser\'{a}n cargados. Algunas fuentes de datos requerir\'{a}n alguna peque\~{n}a manipulaci\'{o}n de 
+los datos. No obstante en otros casos pueden ser necesarias aplicar algunas transformaciones.\\
+Seleccionar s\'{o}lo ciertas columnas para su carga (por ejemplo, que las columnas con valores nulos no se carguen)\\
+Traducir c\'{o}digos (si la fuente almacena una “H” para Hombre y “M” para Mujer pero el destino tiene que guardar “1″ para Hombre y “2″ para Mujer)\\
+Codificar valores libres (convertir “Hombre” en “H” o “Sr” en “1″)\\
+Obtener nuevos valores calculados (total$\_$venta = cantidad * precio)\\
+Dividir una columna en varias (columna “Nombre: Garc\'{i}a, Miguel”; pasar a dos columnas “Nombre: Miguel” y “Apellido: Garc\'{i}a”)\\
+
+Proceso de Carga de ETL\\
+Esta fase se da en el momento en el cual los datos de la fase de transformaci\'{o}n son cargados en el sistema de destino. 
+Dependiendo de los requerimientos de la organizaci\'{o}n, este proceso puede abarcar una amplia variedad de acciones diferentes. 
+En algunas bases de datos se sobrescribe la informaci\'{o}n antigua con nuevos datos. Los data warehouse mantienen un historial 
+de los registros de manera que se pueda hacer una auditor\'{i}a de los mismos y disponer de un rastro de toda la historia de un 
+valor a lo largo del tiempo.\\
+Existen dos formas b\'{a}sicas de desarrollar el proceso de carga.\\
+Acumulaci\'{o}n simple: Es la m\'{a}s sencilla y com\'{u}n, y consiste en realizar un resumen de todas las transacciones comprendidas 
+en el per\'{i}odo de tiempo seleccionado y transportar el resultado como una \'{u}nica transacci\'{o}n hacia el data warehouse, 
+almacenando un valor calculado que consistir\'{a} t\'{i}picamente en un sumatorio o un promedio de la magnitud considerada.\\
+Rolling: El proceso de Rolling se aplica en los casos en que se opta por mantener varios niveles. Para ello se almacena 
+informaci\'{o}n resumida a distintos niveles, correspondientes a distintas agrupaciones 
+de la unidad de tiempo o diferentes niveles jer\'{a}rquicos en alguna o varias de las dimensiones de la magnitud almacenada, como totales 
+diarios, totales semanales, totales mensuales.\\
+La fase de carga interact\'{u}a directamente con la base de datos de destino. Al realizar esta operaci\'{o}n se aplicar\'{a}n todas 
+las restricciones y triggers que se hayan definido como los valores \'{u}nicos, la integridad referencial, campos 
+obligatorios, rangos de valores. Estas restricciones y triggers contribuyen a que se garantice 
+la calidad de los datos en el proceso ETL.\\
 
 %------------------------------------------------
 %Conclusiones
 %------------------------------------------------
 \section*{Conclusiones}
 
-\lipsum[1-3] % Dummy text
-
-\begin{align}
-A = 
-\begin{bmatrix}
-A_{11} & A_{21} \\
-A_{21} & A_{22}
-\end{bmatrix}
-\end{align}
-
-\lipsum[4] % Dummy text
-
-%------------------------------------------------
-
-\subsection*{Cuando usar una base de datos Multidimensional?}
-
-\lipsum[5] % Dummy text
-
 \begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
+\item Los cubos OLAP son de f\'{a}cil acceso y f\'{a}cil uso para cualquier usuario, al tener los datos organizados en diferentes dimensiones permite un mejor análisis, lo que implica un ahorro en productividad de personas altamente profesionales. Permiten encontrar historia en los datos y generan cierta ventaja competitiva a la compa\'{i}a que los implementa.
+\item Si se utiliza el modelo multidimensional de bases de datos mediante una sola consulta se pueden obtener muchos datos, que mediante bases de datos relacionales podrian ser dos o tres consultas para obtener los mismos datos. La facilidad de ubicar productos en alg\'{u}n tiempo con su identificador \'{u}nico tiene muchas ventajas en menos consultas en menor tiempo.
+\item Las consultas para un cubo OLAP son mucho mas r\'{a}pidas y simples que las consultas para un motor de base de datos com\'{u}n. Adem\'{a}s cualquier usuario, tenga o no conocimientos de bases de datos puede consultar gr\'{a}ficamente y crear reportes a partir de un cubo OLAP.
+\item El mayor problema de las bases de datos multidimensionales es su dise\~{n}o, debido a que no pueden ser modificadas despu\'{e}s de ser creadas, por este motivo debemos tomar el tiempo que sea necesario para implementar las consultas que la empresa requiere u puede llegar a requerir en el futuro.
+\item Las diferencias de los DWs con respecto a las bases de datos tradicionales provocaron el desarrollo de
+nuevas metodolog\'{i}as de dise\~{n}o y la creaci\'{o}n de nuevos modelos de datos. Los trabajos de generaci\'{o}n de
+esquemas l\'{o}gicos a partir de esquemas conceptuales no se pueden aplicar directamente pero sirven de
+base para nuevas propuestas.
+\item El trabajo existente de dise\~{n}o l\'{o}gico de DWs a partir de esquemas conceptuales s\'{o}lo resuelve la
+construcci\'{o}n de subesquemas espec\'{i}ficos como estrella o snowflake, pero no resuelve casos generales. Los esquemas en estrella para Data Wherehouse son mas sencillos y representan menos complejidad.
 \end{itemize}
-
-\lipsum[6] % Dummy text
 
 %------------------------------------------------
 
 \subsection*{Ventajas y Desventajas de las bases de datos Multidimensionales}
+\subsubsection*{Ventajas}
+\begin{itemize}
+\item Tiene acceso a grandes cantidades de informaci\'{o}n.
+\item Analiza las relaciones entre muchos tipos de elementos empresariales.
+\item Involucra datos agregados.
+\item Compara datos agregados a trav\'{e}s de periodos de tiempo jer\'{a}rquicos.
+\item Presentan los datos en diferentes prspectivas.
+\item Involucran c\'{a}lculos complejos entre elementos de datos.
+\item Pueden responder r\'{a}pidamente a usuarios.
+\item Permite a cualquier usuario con o sin conocimientos de SQL realizar consultas y crear informes.
+\item Sus consultas en MDX son mas sencillas que sus equivalentes en SQL.
+\end{itemize}
+\subsubsection*{Desventajas}
+\begin{itemize}
+\item Su falla reside en la imposibilidad de realizar cambios en su estructura.
+\item Debido a su funcionamiento y el almacenamiento de su informaci\'{o}n cuando un usuario requiere realizar modificaciones en la estructura, debe rediseñar y construir de nuevo el cubo OLAP.
+\end{itemize}
 
-\lipsum[7] % Dummy text
-
-\begin{table}
-\caption{Random table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
-\end{table}
 %------------------------------------------------
 
 \subsection*{Comparaci\'{o}n entre tipos de OLAP}
 
-\lipsum[5] % Dummy text
+\begin{center}
+\includegraphics[scale=0.4]{tiposOLAP.png}
+\end{center}
 
+\subsubsection*{MOLAP}
+Los datos se almacenan en un cubo multidimensional. El almacenamiento no est\'{a} en la base de datos relacional, pero en formatos privativos. Los productos MOLAP son compatibles con Excel, lo que permite que la interacci\'{o}n con los datos sea muy f\'{a}cil de aprender.\\
+\textbf{Ventajas:}
 \begin{itemize}
-\item First item in a list 
-\item Second item in a list 
-\item Third item in a list
+\item Excelente rendimiento: los cubos MOLAP se construyen para la recuperaci\'{o}n r\'{a}pida de datos, y son \'{o}ptimas para crear operaciones peque\~`{n}as a partir de otras grandes.
+\item Puede realizar c\'{a}lculos complejos de forma r\'{a}pida: a menudo la l\'{o}gica de c\'{a}lculo puede ser manejado por los usuarios (es decir, sin necesidad de conocimientos de programaci\'{o}n de bases de datos relacionales).
+\end{itemize}
+\textbf{Desventajas}
+\begin{itemize}
+\item A veces limitado en la cantidad de datos que puede manejar: porque todos los c\'{a}lculos se realizan cuando se construye el cubo, puede que no sea posible incluir una gran cantidad de datos en el propio cubo. Esto no quiere decir que los datos en el cubo no se pueden derivar de una gran cantidad de datos.
+\item Los productos MOLAP son por lo general privativos.
+\item Los datos deben ser transferidos de tablas relacionales, que pueden ser complejo y redundante.
 \end{itemize}
 
-\lipsum[6] % Dummy text
+\subsubsection*{ROLAP}
+Los roductos ROLAP pueden acceder a una base de datos relacional mediante SQL El tratamiento posterior puede ocurrir en el RDBMS o dentro de un servidor de nivel medio, que acepta las peticiones de los clientes, las traduce en instrucciones SQL, y los pasa a la RDBMS.\\
+\textbf{Ventajas:}
+\begin{itemize}
+\item No hay limitaci\'{o}n de datos, puede manejar grandes cantidades de datos.
+\item Se puede acceder a la funcionalidad de uso de las bases de datos relacionales heredadas.
+\end{itemize}
+\textbf{Desventajas}
+\begin{itemize}
+\item El rendimiento puede ser lento debido al gran tama\~{n}o de los conjuntos de datos.
+\item Puede ser limitado a funciones de SQL, que pueden ser inflexibles.
+\item Pueden necesitar ser reformateado para los usuarios finales.
+\end{itemize}
+
+\subsubsection*{HOLAP}
+La fusi\'{o}n de las mejores caracter\'{i}sticas de MOLAP y ROLAP permiten c\'{a}lculos r\'{a}pidos de RDBMS mediante el uso de cubos precalculados.\\
+\textbf{Ventajas:}
+\begin{itemize}
+\item Tiene las mejores características de ambos MOLAP y ROLAP: escalabilidad, flexibilidad y velocidad.
+\item Utiliza la funcionalidad RDBMS SQL.
+\item Puede hacer ``drill-down" de un cubo a una tabla relacional.
+\item R\'{a}pido de usar debido a cubos precalculados.
+\end{itemize}
+\textbf{Desventajas:}
+\begin{itemize}
+\item Tiene las limitaciones de ambos MOLAP y ROLAP: ya que es r\'{a}pido, puede que no sea tan r\'{a}pido como el MOLAP puro, y puede que no sea tan escalable como ROLAP puro.
+\end{itemize}
+
+\subsubsection{SOLAP}
+\textbf{Ventajas:}
+\begin{itemize}
+\item El apoyo a una estructura de cubo de datos espaciales.
+\item El apoyo a varias fuentes de datos espaciales.
+\item Soporte para m\'{u}ltiples dimensiones espaciales en un cubo de datos espaciales.
+\item Apoyo a todas las primitivas espaciales simples y complejas (norma ISO).
+\item Soporte para datos espaciales historicos.
+\item Apoyo a la generalizaci\'{o}n cartogr\'{a}fica autom\'{a}tica o representaci\'{o}n cartogr\'{a}fica m\'{u}ltiple de elementos.
+\end{itemize}
+
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -618,17 +654,46 @@ Richard & Miles & $2$ \\
 
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
-\bibitem[]{Ramakrishnan:2003dg}
+\bibitem{Ramakrishnan:2003dg}
 Ramakrishnan, R.~ Gehrke, J. (2003).
 \newblock SISTEMAS DE GESTION DE ´
 BASES DE DATOS (Tercera ed.).
 \newblock {\em Espa\~{n}a: McGraw-Hill.}
 
-\bibitem[]{Thomsen:2003dg}
+\bibitem{Thomsen:2003dg}
 Thomsen, E. (2002).
 \newblock OLAP Solutions: Building Multidimentional Information Systems (Segunda ed.).
-\newblock {\em New York: John Wiley & Sons.}
- 
+\newblock {\em New York: John Wiley \& Sons.}
+
+
+\bibitem{Adamson:1998dg}
+Adamson, C. Venerable, M. (1998)
+\newblock Data Warehouse Design Solutions
+\newblock {\em J. Wiley \& Sons}
+
+
+\bibitem{Agrawal:1997dg}
+Agrawal, R. Gupta, A. Sarawagi, S. (1997)
+\newblock Modelling Multidimensional Databases
+\newblock{\em ICDE’97, UK}
+
+\bibitem{Alcarraz:2001dg}
+Alcarraz, A. Ayala, M. Gatto, P. (2001)
+\newblock Dise\~{n}o e implementación de una herramienta para evolución de un Data Warehouse Relacional.
+\newblock{\em Universidad de la República, Uruguay}
+
+\bibitem{Curto:2011dg}
+Curto Díaz J.,Conesa Caralt J. (2011)
+\newblock Introducci\'{o}n al Business Intelligence
+(Segunda ed.)
+\newblock{\em Editorial UOC}
+
+\bibitem{Cambridge:1999dg}
+Dimensional S. (1998)
+\newblock The LC Model for OLAP
+\newblock{\em Dimensional Systems}
+
+
 \end{thebibliography}
 
 %----------------------------------------------------------------------------------------
